@@ -2,14 +2,13 @@
 # i3 config file
 #
 # User guide: http://i3wm.org/docs/userguide.html
-exec unclutter -idle 1
+exec unclutter
 set $mod Mod4
 exec --no-startup-id setxkbmap -model pc105 -layout us -option options: grp:shift_caps_toggle,terminate:ctrl_alt_bksp
 exec syndaemon -i 1 -d
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:Inconsolata 9
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -192,7 +191,7 @@ bindsym $mod+Shift+y gaps outer current minus 6
 bindsym $mod+Shift+u gaps outer current plus 6
 
 # class                 border  backgr. text    indicator
-client.focused          #bd93f9 #bd93f9 #bd93f9 #bd93f9
+client.focused          #bd93f9 #bd93f9 #bd93f9 #BD93F9
 client.unfocused        #44475a #44475a #44475a #44475a
 client.focused_inactive #323232 #333333 #ebdbb2 #323232
 client.urgent           #383a3b #383a3b #ee0000 #383a3b
@@ -202,11 +201,14 @@ client.urgent           #383a3b #383a3b #ee0000 #383a3b
 bar {
     position top
     status_command i3status
-    tray_output LVDS
+    tray_output eDP1
     colors{
         background #282a36
         statusline #DCDCDC
-	active_workspace   #586e75 #586e75 #002b36
+	focused_workspace  #bd93f9 #44475a #DCDCDC
+        active_workspace   #bd93f9 #002b36 #282a36
+        inactive_workspace #282a36 #021215 #586e75
+        urgent_workspace   #cb4b16 #dc322f #fdf6e
     }
 }
 
