@@ -1,8 +1,15 @@
-
+# GITHUB CAN YOU HEAR ME!!!!
 # i3 config file
 #
 # User guide: http://i3wm.org/docs/userguide.html
-exec unclutter
+
+# SCREEN TEST 
+
+#exec xrandr --output DP2 --mode "1920x1080"
+#Uncomment for 1080p screen support
+
+
+exec unclutter -idle 2
 set $mod Mod4
 exec --no-startup-id setxkbmap -model pc105 -layout us -option options: grp:shift_caps_toggle,terminate:ctrl_alt_bksp
 exec syndaemon -i 1 -d
@@ -11,7 +18,8 @@ exec syndaemon -i 1 -d
 font pango:Inconsolata 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
+# Music player:
+bindsym $mod+p exec gnome-mplayer
 # Compton
 exec compton -b --backend glx
 #Spacemacs
@@ -23,17 +31,22 @@ bindsym $mod+Shift+q kill
 
 # start a program launcher
 bindsym $mod+d exec rofi -show run -font "snap 10" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -o 85
-# Wallpaper 
-exec --no-startup-id feh --bg-fill ~/Downloads/Wallpaper.jpg
+# Wallpaper
+exec --no-startup-id feh --bg-fill ~/Pictures/pueblo.jpg
 
 
-
-
+#Kill nm-applet 
+bindsym $mod+Shift+m exec killall nm-applet
+#Start nm-applet
+bindsym $mod+m exec nm-applet
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+#StartXchat
+bindsym $mod+x exec xchat
+
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -154,7 +167,6 @@ bindsym $mod+n mode $power_control
 mode "ignore i3" {
     bindsym Shift+Escape mode "default"
 }
-bindsym $mod+m mode "ignore i3"
 
 # Audio controls (volume up, volume down, toggle mute)
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ && pkill -SIGRTMIN+3 i3blocks
@@ -179,10 +191,10 @@ bindsym XF86AudioStop exec playerctl stop
 bindsym $mod+i exec chromium
 
 # Borders
-for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] border pixel 3
 
 # Gaps
-gaps inner 16
+gaps inner 20
 smart_borders no_gaps
 
 bindsym $mod+y gaps inner current minus 6
@@ -215,16 +227,9 @@ bar {
 
 # Applets
 exec --no-startup-id nm-applet # network manager
-exec --no-startup-id twmnd # notifications
-exec --no-startup-id dropbox
-exec --no-startup-id megasync
 exec --no-startup-id redshift-gtk
 exec --no-startup-id udiskie --smart-tray # usb storage automounter
 exec --no-startup-id uim-toolbar-gtk3-systray
 
 # Musid daemon
 exec --no-startup-id mpd ~/.config/mpd/mpd.conf
-
-
-
-
