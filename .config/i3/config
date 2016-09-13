@@ -11,10 +11,10 @@
 
 exec unclutter -idle 2
 set $mod Mod4
-exec --no-startup-id setxkbmap -model pc105 -layout us -option options: grp:shift_caps_toggle,terminate:ctrl_alt_bksp
+#exec --no-startup-id setxkbmap -model pc105 -layout us -option options: grp:shift_caps_toggle,terminate:ctrl_alt_bksp
 exec syndaemon -i 1 -d
 # Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
+# is used in the bar {} block below. EDIT THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 font pango:Inconsolata 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
